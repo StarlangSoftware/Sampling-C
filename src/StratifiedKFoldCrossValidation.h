@@ -21,8 +21,7 @@ Stratified_k_fold_cross_validation_ptr create_stratified_k_fold_cross_validation
                                                                                  int number_of_classes,
                                                                                  int K,
                                                                                  int seed);
-void free_stratified_k_fold_cross_validation(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation,
-                                             void free_method(void*));
+void free_stratified_k_fold_cross_validation(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation);
 Array_list_ptr get_train_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k);
 Array_list_ptr get_test_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k);
 

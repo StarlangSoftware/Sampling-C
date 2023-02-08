@@ -22,8 +22,7 @@ K_fold_cross_validation_ptr create_k_fold_cross_validation(Array_list_ptr instan
     return result;
 }
 
-void free_k_fold_cross_validation(K_fold_cross_validation_ptr k_fold_cross_validation, void free_method(void*)) {
-    free_array_list(k_fold_cross_validation->instance_list, free_method);
+void free_k_fold_cross_validation(K_fold_cross_validation_ptr k_fold_cross_validation) {
     free(k_fold_cross_validation);
 }
 

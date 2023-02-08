@@ -13,3 +13,5 @@ add_executable(BootstrapTest src/Bootstrap.c src/Bootstrap.h src/KFoldCrossValid
 target_link_libraries(BootstrapTest ${CONAN_LIBS})
 add_executable(KFoldCrossValidationTest src/Bootstrap.c src/Bootstrap.h src/KFoldCrossValidation.c src/KFoldCrossValidation.h src/StratifiedKFoldCrossValidation.c src/StratifiedKFoldCrossValidation.h Test/KFoldCrossValidationTest.c)
 target_link_libraries(KFoldCrossValidationTest ${CONAN_LIBS})
+add_executable(StratifiedKFoldCrossValidationTest src/Bootstrap.c src/Bootstrap.h src/KFoldCrossValidation.c src/KFoldCrossValidation.h src/StratifiedKFoldCrossValidation.c src/StratifiedKFoldCrossValidation.h Test/StratifiedKFoldCrossValidationTest.c)
+target_link_libraries(StratifiedKFoldCrossValidationTest ${CONAN_LIBS})

@@ -18,6 +18,8 @@ void testSmallSample10Fold(){
     if (strcmp(array_list_get(test_sample, 0), "4") != 0){
         printf("Test failed in testSmallSample10Fold\n");
     }
+    free_array_list(test_sample, NULL);
+    free_k_fold_cross_validation(cross_validation);
 }
 
 void testSmallSample5Fold(){
@@ -34,6 +36,8 @@ void testSmallSample5Fold(){
     if (strcmp(array_list_get(test_sample, 1), "6") != 0){
         printf("Test failed in testSmallSample5Fold\n");
     }
+    free_array_list(test_sample, NULL);
+    free_k_fold_cross_validation(cross_validation);
 }
 
 int main(){

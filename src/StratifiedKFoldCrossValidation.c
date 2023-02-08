@@ -29,13 +29,8 @@ create_stratified_k_fold_cross_validation(Array_list_ptr *instance_lists, int nu
 }
 
 void
-free_stratified_k_fold_cross_validation(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation,
-                                        void free_method(void*)) {
+free_stratified_k_fold_cross_validation(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation) {
     free(stratified_k_fold_cross_validation->N);
-    for (int i = 0; i < stratified_k_fold_cross_validation->number_of_classes; i++){
-        free_array_list(stratified_k_fold_cross_validation->instance_lists[i], free_method);
-    }
-    free(stratified_k_fold_cross_validation->instance_lists);
     free(stratified_k_fold_cross_validation);
 }
 
