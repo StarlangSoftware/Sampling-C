@@ -12,14 +12,8 @@ void testSmallSample10Fold(){
     char* i2[] = {"11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
                   "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"};
     Array_list_ptr small_sample[2];
-    small_sample[0] = create_array_list();
-    small_sample[1] = create_array_list();
-    for (int i = 0; i < 10; i++){
-        array_list_add(small_sample[0], i1[i]);
-    }
-    for (int i = 0; i < 20; i++){
-        array_list_add(small_sample[1], i2[i]);
-    }
+    small_sample[0] = create_array_list_of_string(i1, 10);
+    small_sample[1] = create_array_list_of_string(i2, 20);
     Stratified_k_fold_cross_validation_ptr cross_validation = create_stratified_k_fold_cross_validation(small_sample, 2, 10, 1);
     Array_list_ptr test_sample = get_test_fold_stratified(cross_validation, 0);
     if (strcmp(array_list_get(test_sample, 0), "4") != 0){
@@ -41,14 +35,8 @@ void testSmallSample5Fold(){
     char* i2[] = {"11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
                   "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"};
     Array_list_ptr small_sample[2];
-    small_sample[0] = create_array_list();
-    small_sample[1] = create_array_list();
-    for (int i = 0; i < 10; i++){
-        array_list_add(small_sample[0], i1[i]);
-    }
-    for (int i = 0; i < 20; i++){
-        array_list_add(small_sample[1], i2[i]);
-    }
+    small_sample[0] = create_array_list_of_string(i1, 10);
+    small_sample[1] = create_array_list_of_string(i2, 20);
     Stratified_k_fold_cross_validation_ptr cross_validation = create_stratified_k_fold_cross_validation(small_sample, 2, 5, 1);
     Array_list_ptr test_sample = get_test_fold_stratified(cross_validation, 0);
     if (strcmp(array_list_get(test_sample, 0), "10") != 0){

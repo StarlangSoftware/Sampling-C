@@ -8,10 +8,7 @@
 
 void testSmallSample(){
     char* s[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-    Array_list_ptr small_sample = create_array_list();
-    for (int i = 0; i < 10; i++){
-        array_list_add(small_sample, s[i]);
-    }
+    Array_list_ptr small_sample = create_array_list_of_string(s, 10);
     Bootstrap_ptr bootstrap = create_bootstrap(small_sample, 1);
     Array_list_ptr bootstrap_sample = get_sample(bootstrap);
     if (strcmp(array_list_get(bootstrap_sample, 0) , "4") != 0){
