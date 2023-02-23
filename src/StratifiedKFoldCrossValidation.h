@@ -7,22 +7,27 @@
 
 #include <ArrayList.h>
 
-struct stratified_k_fold_cross_validation{
-    int* N;
+struct stratified_k_fold_cross_validation {
+    int *N;
     int K;
     int number_of_classes;
-    Array_list_ptr* instance_lists;
+    Array_list_ptr *instance_lists;
 };
 
 typedef struct stratified_k_fold_cross_validation Stratified_k_fold_cross_validation;
-typedef Stratified_k_fold_cross_validation* Stratified_k_fold_cross_validation_ptr;
+typedef Stratified_k_fold_cross_validation *Stratified_k_fold_cross_validation_ptr;
 
-Stratified_k_fold_cross_validation_ptr create_stratified_k_fold_cross_validation(Array_list_ptr* instance_lists,
+Stratified_k_fold_cross_validation_ptr create_stratified_k_fold_cross_validation(Array_list_ptr *instance_lists,
                                                                                  int number_of_classes,
                                                                                  int K,
                                                                                  int seed);
+
 void free_stratified_k_fold_cross_validation(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation);
-Array_list_ptr get_train_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k);
-Array_list_ptr get_test_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k);
+
+Array_list_ptr
+get_train_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k);
+
+Array_list_ptr
+get_test_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k);
 
 #endif //SAMPLING_STRATIFIEDKFOLDCROSSVALIDATION_H

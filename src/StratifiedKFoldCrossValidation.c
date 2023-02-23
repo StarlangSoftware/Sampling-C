@@ -20,7 +20,7 @@ create_stratified_k_fold_cross_validation(Array_list_ptr *instance_lists, int nu
     result->number_of_classes = number_of_classes;
     result->K = K;
     result->N = malloc(number_of_classes * sizeof(int));
-    for (int i = 0; i < number_of_classes; i++){
+    for (int i = 0; i < number_of_classes; i++) {
         srand(seed);
         array_list_shuffle(result->instance_lists[i]);
         result->N[i] = result->instance_lists[i]->size;
@@ -40,13 +40,17 @@ free_stratified_k_fold_cross_validation(Stratified_k_fold_cross_validation_ptr s
  * @param k index for the k'th train fold of the K-fold stratified cross-validation
  * @return Produced training sample
  */
-Array_list_ptr get_train_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k) {
+Array_list_ptr
+get_train_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k) {
     Array_list_ptr train_fold = create_array_list();
-    for (int i = 0; i < stratified_k_fold_cross_validation->number_of_classes; i++){
-        for (int j = 0; j < (k * stratified_k_fold_cross_validation->N[i]) / stratified_k_fold_cross_validation->K; j++){
+    for (int i = 0; i < stratified_k_fold_cross_validation->number_of_classes; i++) {
+        for (int j = 0;
+             j < (k * stratified_k_fold_cross_validation->N[i]) / stratified_k_fold_cross_validation->K; j++) {
             array_list_add(train_fold, array_list_get(stratified_k_fold_cross_validation->instance_lists[i], j));
         }
-        for (unsigned long j = ((k + 1) * stratified_k_fold_cross_validation->N[i]) / stratified_k_fold_cross_validation->K; j < stratified_k_fold_cross_validation->N[i]; j++){
+        for (unsigned long j =
+                ((k + 1) * stratified_k_fold_cross_validation->N[i]) / stratified_k_fold_cross_validation->K;
+             j < stratified_k_fold_cross_validation->N[i]; j++) {
             array_list_add(train_fold, array_list_get(stratified_k_fold_cross_validation->instance_lists[i], j));
         }
     }
@@ -59,10 +63,12 @@ Array_list_ptr get_train_fold_stratified(Stratified_k_fold_cross_validation_ptr 
  * @param k index for the k'th test fold of the K-fold stratified cross-validation
  * @return Produced testing sample
  */
-Array_list_ptr get_test_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k) {
+Array_list_ptr
+get_test_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k) {
     Array_list_ptr test_fold = create_array_list();
-    for (int i = 0; i < stratified_k_fold_cross_validation->number_of_classes; i++){
-        for (int j = (k * stratified_k_fold_cross_validation->N[i]) / stratified_k_fold_cross_validation->K; j < ((k + 1) * stratified_k_fold_cross_validation->N[i]) / stratified_k_fold_cross_validation->K; j++){
+    for (int i = 0; i < stratified_k_fold_cross_validation->number_of_classes; i++) {
+        for (int j = (k * stratified_k_fold_cross_validation->N[i]) / stratified_k_fold_cross_validation->K;
+             j < ((k + 1) * stratified_k_fold_cross_validation->N[i]) / stratified_k_fold_cross_validation->K; j++) {
             array_list_add(test_fold, array_list_get(stratified_k_fold_cross_validation->instance_lists[i], j));
         }
     }

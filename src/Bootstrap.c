@@ -17,13 +17,13 @@ Bootstrap_ptr create_bootstrap(Array_list_ptr instance_list, int seed) {
     result->instance_list = create_array_list();
     srand(seed);
     int N = instance_list->size;
-    for (int i = 0; i < N; i++){
+    for (int i = 0; i < N; i++) {
         array_list_add(result->instance_list, array_list_get(instance_list, random() % N));
     }
     return result;
 }
 
-void free_bootstrap(Bootstrap_ptr bootstrap, void free_method(void*)) {
+void free_bootstrap(Bootstrap_ptr bootstrap, void free_method(void *)) {
     free_array_list(bootstrap->instance_list, free_method);
     free(bootstrap);
 }
