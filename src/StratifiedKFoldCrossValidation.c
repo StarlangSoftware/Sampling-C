@@ -41,7 +41,7 @@ free_stratified_k_fold_cross_validation(Stratified_k_fold_cross_validation_ptr s
  * @return Produced training sample
  */
 Array_list_ptr
-get_train_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k) {
+get_train_fold_stratified(const Stratified_k_fold_cross_validation* stratified_k_fold_cross_validation, int k) {
     Array_list_ptr train_fold = create_array_list();
     for (int i = 0; i < stratified_k_fold_cross_validation->number_of_classes; i++) {
         for (int j = 0;
@@ -64,7 +64,7 @@ get_train_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fo
  * @return Produced testing sample
  */
 Array_list_ptr
-get_test_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k) {
+get_test_fold_stratified(const Stratified_k_fold_cross_validation* stratified_k_fold_cross_validation, int k) {
     Array_list_ptr test_fold = create_array_list();
     for (int i = 0; i < stratified_k_fold_cross_validation->number_of_classes; i++) {
         for (int j = (k * stratified_k_fold_cross_validation->N[i]) / stratified_k_fold_cross_validation->K;

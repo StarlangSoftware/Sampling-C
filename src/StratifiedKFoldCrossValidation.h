@@ -25,9 +25,9 @@ Stratified_k_fold_cross_validation_ptr create_stratified_k_fold_cross_validation
 void free_stratified_k_fold_cross_validation(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation);
 
 Array_list_ptr
-get_train_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k);
+get_train_fold_stratified(const Stratified_k_fold_cross_validation* stratified_k_fold_cross_validation, int k);
 
 Array_list_ptr
-get_test_fold_stratified(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation, int k);
+get_test_fold_stratified(const Stratified_k_fold_cross_validation* stratified_k_fold_cross_validation, int k);
 
 #endif //SAMPLING_STRATIFIEDKFOLDCROSSVALIDATION_H

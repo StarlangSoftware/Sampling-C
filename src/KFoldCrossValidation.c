@@ -32,7 +32,7 @@ void free_k_fold_cross_validation(K_fold_cross_validation_ptr k_fold_cross_valid
  * @param k index for the k'th train fold of the K-fold cross-validation
  * @return Produced training sample
  */
-Array_list_ptr get_train_fold_k_fold(K_fold_cross_validation_ptr k_fold_cross_validation, int k) {
+Array_list_ptr get_train_fold_k_fold(const K_fold_cross_validation* k_fold_cross_validation, int k) {
     Array_list_ptr train_fold = create_array_list();
     for (int i = 0; i < (k * k_fold_cross_validation->N) / k_fold_cross_validation->K; i++) {
         array_list_add(train_fold, array_list_get(k_fold_cross_validation->instance_list, i));
@@ -50,7 +50,7 @@ Array_list_ptr get_train_fold_k_fold(K_fold_cross_validation_ptr k_fold_cross_va
  * @param k index for the k'th test fold of the K-fold cross-validation
  * @return Produced testing sample
  */
-Array_list_ptr get_test_fold_k_fold(K_fold_cross_validation_ptr k_fold_cross_validation, int k) {
+Array_list_ptr get_test_fold_k_fold(const K_fold_cross_validation* k_fold_cross_validation, int k) {
     Array_list_ptr test_fold = create_array_list();
     for (int i = (k * k_fold_cross_validation->N) / k_fold_cross_validation->K;
          i < ((k + 1) * k_fold_cross_validation->N) / k_fold_cross_validation->K; i++) {

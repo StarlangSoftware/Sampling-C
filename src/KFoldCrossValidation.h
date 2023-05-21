@@ -20,8 +20,8 @@ K_fold_cross_validation_ptr create_k_fold_cross_validation(Array_list_ptr instan
 
 void free_k_fold_cross_validation(K_fold_cross_validation_ptr k_fold_cross_validation);
 
-Array_list_ptr get_train_fold_k_fold(K_fold_cross_validation_ptr k_fold_cross_validation, int k);
+Array_list_ptr get_train_fold_k_fold(const K_fold_cross_validation* k_fold_cross_validation, int k);
 
-Array_list_ptr get_test_fold_k_fold(K_fold_cross_validation_ptr k_fold_cross_validation, int k);
+Array_list_ptr get_test_fold_k_fold(const K_fold_cross_validation* k_fold_cross_validation, int k);
 
 #endif //SAMPLING_KFOLDCROSSVALIDATION_H
