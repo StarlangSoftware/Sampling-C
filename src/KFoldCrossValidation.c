@@ -6,7 +6,7 @@
 #include "KFoldCrossValidation.h"
 
 /**
- * A constructor of {@link KFoldCrossValidation} class which takes a sample as an array of instances, a K (K in K-fold cross-validation) and a seed number,
+ * A constructor of KFoldCrossValidation class which takes a sample as an array of instances, a K (K in K-fold cross-validation) and a seed number,
  * then shuffles the original sample using this seed as random number.
  *
  * @param instanceList Original sample

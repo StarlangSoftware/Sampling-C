@@ -6,7 +6,7 @@
 #include "StratifiedKFoldCrossValidation.h"
 
 /**
- * A constructor of {@link StratifiedKFoldCrossValidation} class which takes as set of class samples as an array of array of instances, a K (K in K-fold cross-validation) and a seed number,
+ * A constructor of StratifiedKFoldCrossValidation class which takes as set of class samples as an array of array of instances, a K (K in K-fold cross-validation) and a seed number,
  * then shuffles each class sample using the seed number.
  *
  * @param instanceLists Original class samples. Each element of the this array is a sample only from one class.

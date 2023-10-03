@@ -6,7 +6,7 @@
 #include "Bootstrap.h"
 
 /**
- * A constructor of {@link Bootstrap} class which takes a sample an array of instances and a seed number, then creates a bootstrap
+ * A constructor of Bootstrap class which takes a sample an array of instances and a seed number, then creates a bootstrap
  * sample using this seed as random number.
  *
  * @param instanceList  Original sample
