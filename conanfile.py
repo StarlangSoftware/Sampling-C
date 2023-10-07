@@ -1,7 +1,7 @@
 from conans import ConanFile, CMake, tools
 
 
-class PropBankConan(ConanFile):
+class SamplingConan(ConanFile):
     name = "Sampling-C"
     version = "1.0.0"
     requires = ["Util-C/1.0.0"]
