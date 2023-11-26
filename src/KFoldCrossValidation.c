@@ -3,6 +3,7 @@
 //
 
 #include <stdlib.h>
+#include <Memory/Memory.h>
 #include "KFoldCrossValidation.h"
 
 /**
@@ -14,16 +15,16 @@
  * @param seed Random number to create K-fold sample(s)
  */
 K_fold_cross_validation_ptr create_k_fold_cross_validation(Array_list_ptr instance_list, int K, int seed) {
-    K_fold_cross_validation_ptr result = malloc(sizeof(K_fold_cross_validation));
+    K_fold_cross_validation_ptr result = malloc_(sizeof(K_fold_cross_validation), "create_k_fold_cross_validation");
     result->K = K;
     result->N = instance_list->size;
     result->instance_list = instance_list;
-    array_list_shuffle(result->instance_list);
+    array_list_shuffle(result->instance_list, seed);
     return result;
 }
 
 void free_k_fold_cross_validation(K_fold_cross_validation_ptr k_fold_cross_validation) {
-    free(k_fold_cross_validation);
+    free_(k_fold_cross_validation);
 }
 
 /**

@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include "StratifiedKFoldCrossValidation.h"
+#include "Memory/Memory.h"
 
 /**
  * A constructor of StratifiedKFoldCrossValidation class which takes as set of class samples as an array of array of instances, a K (K in K-fold cross-validation) and a seed number,
@@ -15,14 +16,14 @@
  */
 Stratified_k_fold_cross_validation_ptr
 create_stratified_k_fold_cross_validation(Array_list_ptr *instance_lists, int number_of_classes, int K, int seed) {
-    Stratified_k_fold_cross_validation_ptr result = malloc(sizeof(Stratified_k_fold_cross_validation));
+    Stratified_k_fold_cross_validation_ptr result = malloc_(sizeof(Stratified_k_fold_cross_validation), "create_stratified_k_fold_cross_validation_1");
     result->instance_lists = instance_lists;
     result->number_of_classes = number_of_classes;
     result->K = K;
-    result->N = malloc(number_of_classes * sizeof(int));
+    result->N = malloc_(number_of_classes * sizeof(int), "create_stratified_k_fold_cross_validation_2");
     for (int i = 0; i < number_of_classes; i++) {
         srand(seed);
-        array_list_shuffle(result->instance_lists[i]);
+        array_list_shuffle(result->instance_lists[i], seed);
         result->N[i] = result->instance_lists[i]->size;
     }
     return result;
@@ -30,8 +31,8 @@ create_stratified_k_fold_cross_validation(Array_list_ptr *instance_lists, int nu
 
 void
 free_stratified_k_fold_cross_validation(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation) {
-    free(stratified_k_fold_cross_validation->N);
-    free(stratified_k_fold_cross_validation);
+    free_(stratified_k_fold_cross_validation->N);
+    free_(stratified_k_fold_cross_validation);
 }
 
 /**

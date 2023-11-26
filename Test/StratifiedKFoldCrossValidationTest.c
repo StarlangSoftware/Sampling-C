@@ -5,6 +5,7 @@
 #include <ArrayList.h>
 #include <string.h>
 #include <stdio.h>
+#include <Memory/Memory.h>
 #include "../src/StratifiedKFoldCrossValidation.h"
 
 void testSmallSample10Fold() {
@@ -26,6 +27,7 @@ void testSmallSample10Fold() {
     if (strcmp(array_list_get(test_sample, 2), "21") != 0) {
         printf("Test failed in testSmallSample10Fold\n");
     }
+    free_array_list(test_sample, NULL);
     free_array_list(small_sample[0], NULL);
     free_array_list(small_sample[1], NULL);
     free_stratified_k_fold_cross_validation(cross_validation);
@@ -59,6 +61,7 @@ void testSmallSample5Fold() {
     if (strcmp(array_list_get(test_sample, 5), "11") != 0) {
         printf("Test failed in testSmallSample10Fold\n");
     }
+    free_array_list(test_sample, NULL);
     free_array_list(small_sample[0], NULL);
     free_array_list(small_sample[1], NULL);
     free_stratified_k_fold_cross_validation(cross_validation);

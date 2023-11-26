@@ -3,6 +3,7 @@
 //
 
 #include <stdlib.h>
+#include <Memory/Memory.h>
 #include "Bootstrap.h"
 
 /**
@@ -13,7 +14,7 @@
  * @param seed Random number to create boostrap sample
  */
 Bootstrap_ptr create_bootstrap(Array_list_ptr instance_list, int seed) {
-    Bootstrap_ptr result = malloc(sizeof(Bootstrap));
+    Bootstrap_ptr result = malloc_(sizeof(Bootstrap), "create_bootstrap");
     result->instance_list = create_array_list();
     srand(seed);
     int N = instance_list->size;
@@ -25,7 +26,7 @@ Bootstrap_ptr create_bootstrap(Array_list_ptr instance_list, int seed) {
 
 void free_bootstrap(Bootstrap_ptr bootstrap, void free_method(void *)) {
     free_array_list(bootstrap->instance_list, free_method);
-    free(bootstrap);
+    free_(bootstrap);
 }
 
 /**
