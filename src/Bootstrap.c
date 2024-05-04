@@ -24,6 +24,12 @@ Bootstrap_ptr create_bootstrap(Array_list_ptr instance_list, int seed) {
     return result;
 }
 
+/**
+ * Destructor for the Bootstrap class. Frees memory allocated for the instance_list array list with possible option of
+ * freeing memory allocated for the insider objects.
+ * @param bootstrap Current bootstrap
+ * @param free_method Destructor method for the contents of the elements of the instance list
+ */
 void free_bootstrap(Bootstrap_ptr bootstrap, void free_method(void *)) {
     free_array_list(bootstrap->instance_list, free_method);
     free_(bootstrap);

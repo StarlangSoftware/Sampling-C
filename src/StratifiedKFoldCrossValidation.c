@@ -29,6 +29,10 @@ create_stratified_k_fold_cross_validation(Array_list_ptr *instance_lists, int nu
     return result;
 }
 
+/**
+ * Destructor for the StratifiedKFoldCrossValidation class. Frees memory allocated for the N array.
+ * @param stratified_k_fold_cross_validation Current stratified K-fold cross-validation.
+ */
 void
 free_stratified_k_fold_cross_validation(Stratified_k_fold_cross_validation_ptr stratified_k_fold_cross_validation) {
     free_(stratified_k_fold_cross_validation->N);

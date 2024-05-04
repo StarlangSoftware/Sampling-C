@@ -23,6 +23,10 @@ K_fold_cross_validation_ptr create_k_fold_cross_validation(Array_list_ptr instan
     return result;
 }
 
+/**
+ * Destructor for the KFoldCrossValidation class.
+ * @param k_fold_cross_validation Current KFold Cross-validation.
+ */
 void free_k_fold_cross_validation(K_fold_cross_validation_ptr k_fold_cross_validation) {
     free_(k_fold_cross_validation);
 }
