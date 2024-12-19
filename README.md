@@ -21,7 +21,7 @@ For Developers
 
 You can also see [Java](https://github.com/starlangsoftware/Sampling), [Python](https://github.com/starlangsoftware/Sampling-Py), 
 [Cython](https://github.com/starlangsoftware/Sampling-Cy), [Swift](https://github.com/starlangsoftware/Sampling-Swift), 
-[Js](https://github.com/starlangsoftware/Sampling-Js), [C#](https://github.com/starlangsoftware/Sampling-CS), 
+[Js](https://github.com/starlangsoftware/Sampling-Js), [Php](https://github.com/starlangsoftware/Sampling-Php), [C#](https://github.com/starlangsoftware/Sampling-CS), 
 or [C++](https://github.com/starlangsoftware/Sampling-CPP) repository.
 
 ## Requirements
